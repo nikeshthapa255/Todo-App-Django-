@@ -1,0 +1,97 @@
+<html>
+<head class="container">
+	<h2><strong class="col-sm-12 page-header jumbotron text-center bg-warning text-danger">TODO app</strong></h2>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body class="text-info ">
+	<div class="btn-group text-mute">
+		<p class="col-sm-12">Choose-</p>
+		<button type="button" class="btn btn-info" data-toggle="modal" data-target="#Show">
+			show elements
+			<span class="badge">{{job.count}}</span>
+		</button>
+
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target="#Input">
+			Insert
+		</button>
+		<button type="button" class="btn btn-danger"data-toggle="modal" data-target="#Del">delete</button>
+	</div>
+	
+
+	<div id="Show" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class='modal-header'>
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h3 class="modal-title">show elements</h3></div>
+					<div class="modal-body">
+						<table class='table table-responsive table-hover'>
+							<thead>
+								<th>Name</th>
+								<th>Description</th>
+							</thead>
+							<tbody>
+								{%for i in job%}
+								<tr>
+									<td class="sm-col-4" >{{i.name}}</td>
+									<td class="sm-col-8" >{{i.description}}</td>
+								</tr>
+								{%endfor %}	
+
+							</tbody>
+
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="Input" class=" modal fade" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class='modal-header'>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title">Enter elements</h3></div>
+						<div class="modal-body">
+							<form class=" row m-3" action="/addjobs/" method="POST">
+								{% csrf_token %}
+								<input class="col-sm-4" value="name" type="text" name="name" />
+								<input class="col-sm-6" value="info" type="text" name="description" />
+								<input class="col-sm-2" type="submit" class="btn btn-primary m-4"value="add"/>
+
+							</form >
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div id="Del" class=" modal fade" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class='modal-header'>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h3 class="modal-title">Delete elements</h3></div>
+							<div class="modal-body">
+
+								<ul class="row">
+									{%for i in job%}
+									<li class='col-sm-6'>{{i.name}}</li>
+									<form action="/deletejob/{{i.id}}" method="POST">
+										{% csrf_token %}
+										<input class="btn btn-primary col-sm-6" type="submit" value="Delete"/>
+									</form>
+
+									{%endfor %}
+								</ul>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</body>
+		</html>
