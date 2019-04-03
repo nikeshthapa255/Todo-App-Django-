@@ -9,6 +9,7 @@ This is Django project to make Todo application with frontend of bootstrap
 
 **Now you are good to go**
 
-![alt text](https://drive.google.com/file/d/1OrjKLBROASNCzEAYXI0v2m5-MEnSb1pI/view?usp=sharing)
+![Image description](https://github.com/nikeshthapa255/opensource/blob/master/Screenshot%20from%202019-04-03%2013-24-56.png)
+
 
 [https://drive.google.com/file/d/1OrjKLBROASNCzEAYXI0v2m5-MEnSb1pI/view?usp=sharing]
