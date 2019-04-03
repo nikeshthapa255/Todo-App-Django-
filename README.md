@@ -1,9 +1,9 @@
 # Todo-App-Django-
-###About
+### About
 This is Django project to make Todo application with frontend of bootstrap
 
 
-###Setup
+### Setup
 1. Install Django,PostgresSQL,psycopg2
 2. change username and password according to your Postgres setup
 
