@@ -1,6 +1,6 @@
 # Todo-App-Django-
 ### About
-This is Django project to make Todo application with frontend of bootstrap
+This is Todo web app made using django with frontend of bootstrap
 
 
 ### Setup
